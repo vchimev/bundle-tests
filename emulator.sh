@@ -39,4 +39,6 @@ wait_for_emulator() {
     done
 
     echo "Emulator is ready"
+
+    set -e
 }
