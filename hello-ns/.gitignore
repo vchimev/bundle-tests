@@ -1,6 +1,0 @@
-.nvm
-node_modules
-platforms
-*.js
-*.map
-!e2e-tests/**/*.js
