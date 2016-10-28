@@ -9,6 +9,7 @@ npm install
 create_emulator
 start_emulator
 
+echo "TNS CHECK"
 which tns
 tns --version
 rm -rf platforms
