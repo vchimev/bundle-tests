@@ -11,7 +11,8 @@ start_emulator
 
 which tns
 tns --version
-tns platform clean android
+rm -rf platforms
+tns platform add android
 tns run android --justlaunch
 exit 0
 
