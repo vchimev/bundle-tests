@@ -19,7 +19,7 @@ installed_under_nvm() {
 }
 
 install_node() {
-    if ! nvm use $NODE_VER > /dev/null 2>&1 ; then
+    if ! nvm use $NODE_VER 2>&1 | grep -qi "now using" ; then
         echo "Installing node.js: $NODE_VER"
         nvm install $NODE_VER
         nvm use $NODE_VER
