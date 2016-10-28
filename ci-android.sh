@@ -9,6 +9,7 @@ npm install
 create_emulator
 start_emulator
 
+which tns
 tns --version
 tns platform clean android
 tns run android --justlaunch
