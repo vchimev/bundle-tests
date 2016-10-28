@@ -18,8 +18,12 @@ installed_under_nvm() {
     which "$1" | grep -q "$NVM_DIR"
 }
 
+node_not_installed() {
+    nvm use $NODE_VER 2>&1 | grep -vqi "now using"
+}
+
 install_node() {
-    if nvm use $NODE_VER 2>&1 | grep -vqi "now using" ; then
+    if node_not_installed ; then
         echo "Installing node.js: $NODE_VER"
         nvm install $NODE_VER
         nvm use $NODE_VER
