@@ -1,17 +1,20 @@
 #!/bin/bash
 set -e
 
-. ./emulator.sh
+. ./tns-env.sh
+activate_node_env
 
 cd test-ng
-
 npm install
+
+. ./emulator.sh
 create_emulator
 start_emulator
 
 echo "TNS CHECK"
 which tns
 tns --version
+
 rm -rf platforms
 tns platform add android
 tns run android --justlaunch
