@@ -2,12 +2,13 @@
 set -e
 
 . ./tns-env.sh
+. ./emulator.sh
+
 activate_node_env
 
 cd test-ng
 npm install
 
-. ./emulator.sh
 create_emulator
 start_emulator
 
