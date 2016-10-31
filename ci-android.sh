@@ -8,6 +8,7 @@ activate_node_env
 
 cd test-ng
 npm install
+find node_modules -iname '*.gz' -delete
 
 create_emulator
 start_emulator &
