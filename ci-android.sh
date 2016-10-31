@@ -4,27 +4,45 @@ set -e
 . ./tns-env.sh
 . ./emulator.sh
 
+EXIT_CODE=0
 activate_node_env
-
-cd test-ng
-npm install
-find node_modules -iname '*.gz' -delete
 
 create_emulator
 start_emulator &
 EMULATOR_PID=$!
 
-rm -rf platforms
-npm run build-android &
-BUILD_PID=$!
-
-wait $EMULATOR_PID
-wait $BUILD_PID
-
-if npm run appium-android-only ; then
+cleanup() {
     kill_emulator
-    exit 0
-else
-    kill_emulator
-    exit 1
-fi
+    kill -9 "$EMULATOR_PID" 2> /dev/null || true
+    exit "$EXIT_CODE"
+}
+trap cleanup EXIT
+
+build_app() {
+    APP="$1"
+    (cd "$APP" && \
+        npm install && \
+        find node_modules -iname '*.gz' -delete && \
+        rm -rf platforms && \
+        npm run build-android)
+}
+
+test_app() {
+    APP="$1"
+    (cd "$APP" && \
+        npm run appium-android-only)
+}
+
+for app in {test-ng,} ; do
+    if ! build_app "$app" ; then
+        EXIT_CODE=$?
+        break
+    fi
+
+    wait $EMULATOR_PID
+    if ! test_app "$app" ; then
+        EXIT_CODE=$?
+        break
+    fi
+done
+
