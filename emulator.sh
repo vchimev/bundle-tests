@@ -12,8 +12,8 @@ kill_emulator() {
 }
 
 start_emulator() {
-    #emulator -memory 1024 -avd test -no-audio -no-window &
-    emulator -memory 1024 -avd x86-19-bundle-ns &
+    #emulator -memory 1024 -avd x86-19-bundle-ns -port -no-window $EMULATOR_PORT &
+    emulator -memory 1024 -avd x86-19-bundle-ns -port $EMULATOR_PORT &
     wait_for_emulator
 }
 
