@@ -19,6 +19,10 @@ installed_under_nvm() {
     which "$1" | grep -q "$NVM_DIR"
 }
 
+tns_version_matches() {
+    tns --version | grep -qi "$TNS_VER"
+}
+
 node_not_installed() {
     nvm use $NODE_VER 2>&1 | grep -vqi "now using"
 }
@@ -31,19 +35,29 @@ install_node() {
     fi
 }
 
-install_latest_tns() {
+ensure_tns() {
     if installed_under_nvm tns ; then
-        echo "tns already installed."
+        if ! tns_version_matches ; then
+            echo "Previous tns version detected. Uninstalling..."
+            npm uninstall -g nativescript
+            install_tns
+        else
+            echo "tns already installed."
+        fi
     else
-        echo "Installing tns"
-        npm install -g "nativescript@$TNS_VER" --ignore-scripts
-        tns usage-reporting disable
-        tns error-reporting disable
+        install_tns
     fi
+}
+
+install_tns() {
+    echo "Installing tns $TNS_VER..."
+    npm install -g "nativescript@$TNS_VER" --ignore-scripts
+    tns usage-reporting disable
+    tns error-reporting disable
 }
 
 activate_node_env() {
     activate_nvm
     install_node
-    install_latest_tns
+    ensure_tns
 }

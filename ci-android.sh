@@ -19,10 +19,11 @@ tns --version
 rm -rf platforms
 tns platform add android
 tns run android --justlaunch
+
 kill_emulator
 exit 0
 
-if npm run appium-android-bundle ; then
+if npm run appium-android ; then
     kill_emulator
     exit 0
 else
