@@ -10,20 +10,17 @@ cd test-ng
 npm install
 
 create_emulator
-start_emulator
-
-echo "TNS CHECK"
-which tns
-tns --version
+start_emulator &
+EMULATOR_PID=$!
 
 rm -rf platforms
-tns platform add android
-tns run android --justlaunch
+tns build android &
+BUILD_PID=$!
 
-kill_emulator
-exit 0
+wait $EMULATOR_PID
+wait $BUILD_PID
 
-if npm run appium-android ; then
+if npm run appium-android-only ; then
     kill_emulator
     exit 0
 else

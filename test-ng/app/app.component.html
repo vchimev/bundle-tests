@@ -1,7 +1,7 @@
 <StackLayout>
     <Label text="Tap the button" class="title"></Label>
     
-    <Button text="TAP" (tap)="onTap()"></Button>
+    <Button text="TAP" automationText="tapButton" (tap)="onTap()"></Button>
 
-    <Label [text]="message" class="message" textWrap="true"></Label>
+    <Label [text]="message" class="message" automationText="messageLabel" textWrap="true"></Label>
 </StackLayout>
