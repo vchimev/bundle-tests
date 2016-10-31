@@ -1,6 +1,6 @@
 .nvm
 test-ng/platforms
 test-ng/node_modules
-test-ng/**/*.js
-test-ng/**/*.map
+test-ng/app/**/*.js
+test-ng/app/**/*.map
 

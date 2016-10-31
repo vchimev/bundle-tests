@@ -1,8 +1,8 @@
 "use strict";
 var nsAppium = require("nativescript-dev-appium");
 
-describe("android simple", function () {
-    this.timeout(10000);
+describe("button tap", function () {
+    this.timeout(60000);
     var driver;
 
     before(function () {
@@ -19,10 +19,11 @@ describe("android simple", function () {
 
     it("should find an element", function () {
         return driver
+            .waitForElementByAccessibilityId("tapButton", 50000)
             .elementByAccessibilityId("tapButton")
                 .should.eventually.exist
             .tap()
             .elementByAccessibilityId("messageLabel")
-                .text().should.eventually.equal("41 taps left")
+                .text().should.eventually.equal("15 taps left")
     });
 });
