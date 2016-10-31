@@ -15,7 +15,7 @@ start_emulator &
 EMULATOR_PID=$!
 
 rm -rf platforms
-tns build android &
+npm run build-android &
 BUILD_PID=$!
 
 wait $EMULATOR_PID
