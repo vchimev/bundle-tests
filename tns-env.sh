@@ -3,6 +3,7 @@ export NVM_REPO="https://github.com/creationix/nvm.git"
 export NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 export NVM_DIR="${PROJECT_DIR:-$(pwd)}/.nvm"
 export NODE_VER="v6.9.1"
+export TNS_VER="2.3.0"
 
 activate_nvm() {
     if [ ! -d "$NVM_DIR" ] ; then
@@ -35,7 +36,7 @@ install_latest_tns() {
         echo "tns already installed."
     else
         echo "Installing tns"
-        npm install -g nativescript --ignore-scripts
+        npm install -g "nativescript@$TNS_VER" --ignore-scripts
         tns usage-reporting disable
         tns error-reporting disable
     fi
