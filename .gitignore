@@ -7,4 +7,5 @@ test-ts/platforms
 test-ts/node_modules
 test-ts/app/**/*.js
 test-ts/app/**/*.map
-
+test-js/platforms
+test-js/node_modules
