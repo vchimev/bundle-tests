@@ -30,7 +30,7 @@ build_app() {
 test_app() {
     APP="$1"
     (cd "$APP" && \
-        npm run appium-android-only)
+        npm run test-appium-android)
 }
 
 for app in {test-ng,test-ts,test-js} ; do

@@ -24,7 +24,7 @@
         "html-loader": "~0.4.3",
         "lazy": "1.0.11",
         "nativescript-dev-android-snapshot": "^0.*.*",
-        "nativescript-dev-appium": "~0.0.16",
+        "nativescript-dev-appium": "~0.0.17",
         "nativescript-dev-typescript": "^0.3.2",
         "nativescript-dev-webpack": "~0.2.2",
         "typescript": "~2.0.6",
@@ -47,8 +47,9 @@
         "prebuild-ios": "npm run webpack-ios",
         "build-android": "tns build android --bundle --disable-npm-install",
         "build-ios": "tns build ios --bundle --disable-npm-install",
-        "appium-android-only": "nativescript-dev-appium android",
-        "appium-android": "tns build android && nativescript-dev-appium android",
-        "appium-ios-simulator": "tns build ios && nativescript-dev-appium ios-simulator"
+        "test-appium-android": "nativescript-dev-appium android",
+        "appium-android": "tns build android && npm run test-appium-android",
+        "test-appium-ios-simulator": "nativescript-dev-appium ios-simulator",
+        "appium-ios-simulator": "tns build ios && npm run test-appium-ios-simulator"
     }
 }
