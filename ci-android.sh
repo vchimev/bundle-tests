@@ -24,7 +24,7 @@ build_app() {
         npm install && \
         find node_modules -iname '*.gz' -delete && \
         rm -rf platforms && \
-        npm run build-android)
+        npm run build-android-bundle)
 }
 
 test_app() {
