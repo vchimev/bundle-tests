@@ -3,4 +3,8 @@ test-ng/platforms
 test-ng/node_modules
 test-ng/app/**/*.js
 test-ng/app/**/*.map
+test-ts/platforms
+test-ts/node_modules
+test-ts/app/**/*.js
+test-ts/app/**/*.map
 
