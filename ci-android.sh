@@ -33,7 +33,7 @@ test_app() {
         npm run appium-android-only)
 }
 
-for app in {test-ng,} ; do
+for app in {test-ng,test-ts} ; do
     if ! build_app "$app" ; then
         EXIT_CODE=$?
         break
