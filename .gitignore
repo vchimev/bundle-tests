@@ -1,11 +1,15 @@
+.DS_Store
 .nvm
 test-ng/platforms
 test-ng/node_modules
 test-ng/app/**/*.js
 test-ng/app/**/*.map
+test-ng/lib
 test-ts/platforms
 test-ts/node_modules
 test-ts/app/**/*.js
 test-ts/app/**/*.map
+test-ts/lib
 test-js/platforms
 test-js/node_modules
+test-js/lib

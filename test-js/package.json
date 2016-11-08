@@ -7,6 +7,9 @@
         "id": "org.nativescript.testjs",
         "tns-android": {
             "version": "2.5.0-next-2016-10-31-1332"
+        },
+        "tns-ios": {
+            "version": "2.3.0"
         }
     },
     "dependencies": {
@@ -25,7 +28,7 @@
         "lazy": "1.0.11",
         "nativescript-dev-android-snapshot": "^0.*.*",
         "nativescript-dev-appium": "~0.0.17",
-        "nativescript-dev-webpack": "~0.2.3",
+        "nativescript-dev-webpack": "~0.2.5",
         "wd": "0.4.0",
         "webpack": "~2.1.0-beta.25",
         "webpack-sources": "~0.1.2"

@@ -26,7 +26,7 @@
         "nativescript-dev-android-snapshot": "^0.*.*",
         "nativescript-dev-appium": "~0.0.17",
         "nativescript-dev-typescript": "^0.3.2",
-        "nativescript-dev-webpack": "~0.2.3",
+        "nativescript-dev-webpack": "~0.2.5",
         "typescript": "~2.0.6",
         "wd": "~0.4.0",
         "webpack": "~2.1.0-beta.25",
