@@ -23,7 +23,8 @@ describe("button tap", function () {
             .elementByAccessibilityId("tapButton")
                 .should.eventually.exist
             .tap()
-            .elementByAccessibilityId("messageLabel")
+            .elementById("message")
                 .text().should.eventually.equal("15 taps left")
+                //.getAttribute("value").should.eventually.equal("15 taps left")
     });
 });
