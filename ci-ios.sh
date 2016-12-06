@@ -28,12 +28,12 @@ test_app() {
 
 for app in {test-ng,test-ts,test-js} ; do
     if ! build_app "$app" ; then
-        EXIT_CODE=$?
+        EXIT_CODE=1
         break
     fi
 
     if ! test_app "$app" ; then
-        EXIT_CODE=$?
+        EXIT_CODE=2
         break
     fi
 done
