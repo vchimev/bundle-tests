@@ -2,7 +2,7 @@
 var nsAppium = require("nativescript-dev-appium");
 
 describe("button tap", function () {
-    this.timeout(60000);
+    this.timeout(300000);
     var driver;
 
     before(function () {
