@@ -1,8 +1,8 @@
 "use strict";
 var nsAppium = require("nativescript-dev-appium");
 
-describe("android simple", function () {
-    this.timeout(300000);
+describe("button tap", function () {
+    this.timeout(600000);
     var driver;
 
     before(function () {
