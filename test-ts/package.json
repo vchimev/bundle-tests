@@ -28,7 +28,7 @@
         "extract-text-webpack-plugin": "~2.0.0-beta.4",
         "lazy": "1.0.11",
         "nativescript-dev-android-snapshot": "^0.*.*",
-        "nativescript-dev-appium": "~0.0.18",
+        "nativescript-dev-appium": "~0.1.0",
         "nativescript-dev-typescript": "^0.3.2",
         "nativescript-dev-webpack": "^0.2.11",
         "raw-loader": "~0.5.1",
@@ -38,10 +38,6 @@
         "webpack": "~2.1.0-beta.27"
     },
     "scripts": {
-        "test-appium-android": "nativescript-dev-appium android",
-        "appium-android": "tns build android && npm run test-appium-android",
-        "test-appium-ios-simulator": "nativescript-dev-appium ios-simulator",
-        "appium-ios-simulator": "tns build ios && npm run test-appium-ios-simulator",
         "clean-android": "tns clean-app android",
         "clean-ios": "tns clean-app ios",
         "prewebpack-android": "npm run clean-android",
@@ -55,6 +51,10 @@
         "prebuild-android-bundle": "npm run webpack-android",
         "prebuild-ios-bundle": "npm run webpack-ios",
         "build-android-bundle": "tns build android --bundle --disable-npm-install",
-        "build-ios-bundle": "tns build ios --bundle --disable-npm-install"
+        "build-ios-bundle": "tns build ios --bundle --disable-npm-install",
+        "appium": "nativescript-dev-appium",
+        "appium-android": "tns build android && npm run appium --runType=android",
+        "appium-ios-simulator": "tns build ios && npm run appium --runType=ios-simulator",
+        "appium-ios": "tns build ios && npm run appium --runType=ios"
     }
 }
