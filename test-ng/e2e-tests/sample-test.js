@@ -8,6 +8,7 @@ describe("button tap", function () {
     before(function () {
         var caps = nsAppium.caps.ios10();
         caps.showIOSLog = true;
+        caps.launchTimeout = 600000;
         driver = nsAppium.createDriver(caps);
     });
 
