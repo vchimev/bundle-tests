@@ -6,7 +6,9 @@ describe("button tap", function () {
     var driver;
 
     before(function () {
-        driver = nsAppium.createDriver();
+        var caps = nsAppium.caps.ios10();
+        caps.showIOSLog = true;
+        driver = nsAppium.createDriver(caps);
     });
 
     after(function () {
