@@ -8,7 +8,7 @@ EXIT_CODE=0
 activate_node_env
 
 prepare_simulator
-start_simulator $(get_target_udid) &
+start_simulator
 SIMULATOR_PID=$!
 
 cleanup() {
