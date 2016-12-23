@@ -2,11 +2,17 @@
 set -e
 
 . ./tns-env.sh
+. ./simulator.sh
 
 EXIT_CODE=0
 activate_node_env
 
+start_simulator $(get_target_udid) &
+SIMULATOR_PID=$!
+
 cleanup() {
+    stop_simulator
+    kill -9 "$SIMULATOR_PID" 2> /dev/null || true
     exit "$EXIT_CODE"
 }
 trap cleanup EXIT
@@ -32,6 +38,7 @@ for app in {test-ng,test-ts,test-js} ; do
         break
     fi
 
+    wait $SIMULATOR_PID
     if ! test_app "$app" ; then
         EXIT_CODE=2
         break
