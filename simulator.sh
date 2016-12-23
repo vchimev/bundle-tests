@@ -5,10 +5,6 @@ prepare_simulator() {
 }
 
 start_simulator() {
-    udid=$1
-    echo "Starting device: $udid..."
-    #xcrun instruments -w "$udid" || true
-    #open -a "Simulator" --args -CurrentDeviceUDID "$udid"
     ios-sim start --devicetypeid "iPhone-6, 10.0"
 
     for i in $(seq 1 60) ; do  # 10 minutes max wait

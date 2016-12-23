@@ -30,7 +30,7 @@ build_app() {
 test_app() {
     APP="$1"
     (cd "$APP" && \
-        npm run appium --runType=ios-simulator --verbose)
+        npm run appium --runType=ios-simulator)
 }
 
 for app in {test-ng,test-ts,test-js} ; do
