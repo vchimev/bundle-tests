@@ -1,7 +1,10 @@
 #!/bin/bash
 
 prepare_simulator() {
-    npm install -g ios-sim
+    if ! which -s ios-sim ; then
+        echo "ios-sim not found. Installing...";
+        npm install -g ios-sim
+    fi
 }
 
 start_simulator() {
