@@ -6,10 +6,7 @@ describe("button tap", function () {
     var driver;
 
     before(function () {
-        var caps = nsAppium.caps.ios10();
-        caps.showIOSLog = true;
-        caps.launchTimeout = 600000;
-        driver = nsAppium.createDriver(caps);
+        driver = nsAppium.createDriver();
     });
 
     after(function () {
@@ -22,6 +19,7 @@ describe("button tap", function () {
 
     it("should find an element", function () {
         return driver
+            .waitForElementByAccessibilityId("tapButton", 50000)
             .elementByAccessibilityId("tapButton")
                 .should.eventually.exist
             .tap()
