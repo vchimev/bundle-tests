@@ -7,6 +7,7 @@ set -e
 EXIT_CODE=0
 activate_node_env
 
+prepare_simulator
 start_simulator $(get_target_udid) &
 SIMULATOR_PID=$!
 

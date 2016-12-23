@@ -1,14 +1,15 @@
 #!/bin/bash
 
-get_target_udid() {
-    xcrun simctl list devices | sed -En -e '/unavailable/d' -e 's/.*iPhone 6 +\(([^)]+)\).*/\1/p'
+prepare_simulator() {
+    npm install -g ios-sim
 }
 
 start_simulator() {
     udid=$1
     echo "Starting device: $udid..."
     #xcrun instruments -w "$udid" || true
-    open -a "Simulator" --args -CurrentDeviceUDID "$udid"
+    #open -a "Simulator" --args -CurrentDeviceUDID "$udid"
+    ios-sim start --devicetypeid "iPhone-6, 10.0"
 
     for i in $(seq 1 60) ; do  # 10 minutes max wait
         if xcrun simctl list devices | grep "$udid" | grep -q "Booted" ; then
@@ -23,5 +24,5 @@ start_simulator() {
 }
 
 stop_simulator() {
-    osascript -e 'quit app "Simulator"'
+    killall "Simulator"
 }
