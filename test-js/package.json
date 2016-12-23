@@ -6,12 +6,12 @@
   "nativescript": {
     "id": "org.nativescript.testjs",
     "tns-ios": {
-      "version": "2.4.0"
+      "version": "2.5.0-2016-12-7-2"
     }
   },
   "dependencies": {
     "nativescript-theme-core": "^0.2.1",
-    "tns-core-modules": "2.4.4"
+    "tns-core-modules": "next"
   },
   "devDependencies": {
     "awesome-typescript-loader": "~3.0.0-beta.9",

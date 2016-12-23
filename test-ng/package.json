@@ -7,6 +7,9 @@
         "id": "org.nativescript.testng",
         "tns-android": {
             "version": "2.5.0-next-2016-11-28-1432"
+        },
+        "tns-ios": {
+            "version": "2.5.0-2016-12-7-2"
         }
     },
     "dependencies": {
