@@ -1,45 +1,35 @@
 {
-  "name": "tns-template-hello-world-ts",
-  "main": "app.js",
-  "version": "2.5.0",
-  "author": {
-    "name": "Telerik",
-    "email": "support@telerik.com"
-  },
-  "description": "Nativescript hello-world-ts project template",
-  "license": "Apache-2.0",
-  "keywords": [
-    "telerik",
-    "mobile",
-    "nativescript",
-    "{N}",
-    "tns",
-    "appbuilder",
-    "template"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/NativeScript/template-hello-world-ts.git"
-  },
-  "bugs": {
-    "url": "https://github.com/NativeScript/template-hello-world-ts/issues"
-  },
-  "homepage": "https://github.com/NativeScript/template-hello-world-ts",
-  "android": {
-    "v8Flags": "--expose_gc"
-  },
-  "dependencies": {
-    "nativescript-theme-core": "^0.1.3"
-  },
-  "devDependencies": {
-    "nativescript-dev-typescript": "^0.3.2",
-    "nativescript-dev-android-snapshot": "^0.*.*"
-  },
-  "gitHead": "1289d7543f978156f7033b9fdb4d4ce06c782a18",
-  "readme": "# NativeScript TypeScript Template\n\nThis template creates a NativeScript app with the NativeScript hello world example,\nhowever, in this template the example is built with TypeScript.\n\nYou can create a new app that uses this template with either the `--template` option.\n\n```\ntns create my-app-name --template tns-template-hello-world-ts\n```\n\nOr the `--tsc` shorthand.\n\n```\ntns create my-app-name --tsc\n```\n\n> Note: Both commands will create a new NativeScript app that uses the latest version of this template published to [npm] (https://www.npmjs.com/package/tns-template-hello-world-ts).\n\nIf you want to create a new app that uses the source of the template from the `master` branch, you can execute the following:\n\n```\ntns create my-app-name --template https://github.com/NativeScript/template-hello-world-ts.git#master\n```\n",
-  "readmeFilename": "README.md",
-  "_id": "tns-template-hello-world-ts@2.5.0",
-  "_shasum": "de4da21e5858eabcfc4c63105df3c199214a3960",
-  "_from": "git+https://github.com/NativeScript/template-hello-world-ts.git",
-  "_resolved": "git+https://github.com/NativeScript/template-hello-world-ts.git#1289d7543f978156f7033b9fdb4d4ce06c782a18"
+	"name": "tns-template-hello-world-ts",
+	"main": "app.js",
+	"version": "2.4.0",
+	"author": "Telerik <support@telerik.com>",
+	"description": "Nativescript hello-world-ts project template",
+	"license": "Apache-2.0",
+	"keywords": [
+		"telerik",
+		"mobile",
+		"nativescript",
+		"{N}",
+		"tns",
+		"appbuilder",
+		"template"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:NativeScript/template-hello-world-ts.git"
+	},
+	"bugs": {
+		"url": "https://github.com/NativeScript/template-hello-world-ts/issues"
+	},
+	"homepage": "https://github.com/NativeScript/template-hello-world-ts",
+	"android": {
+		"v8Flags": "--expose_gc"
+	},
+	"dependencies": {
+		"nativescript-theme-core": "^0.2.1"
+	},
+	"devDependencies": {
+		"nativescript-dev-typescript": "^0.3.2",
+		"nativescript-dev-android-snapshot": "^0.*.*"
+	}
 }

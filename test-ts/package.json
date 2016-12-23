@@ -1,60 +1,53 @@
 {
-    "description": "NativeScript Application",
-    "license": "SEE LICENSE IN <your-license-filename>",
-    "readme": "NativeScript Application",
-    "repository": "<fill-your-repository-here>",
-    "nativescript": {
-        "id": "org.nativescript.testts",
-        "tns-android": {
-            "version": "2.5.0-next-2016-11-28-1432"
-        },
-        "tns-ios": {
-            "version": "2.5.0-2016-11-3-2"
-        }
-    },
-    "dependencies": {
-        "nativescript-theme-core": "~0.1.3",
-        "tns-core-modules": "next"
-    },
-    "devDependencies": {
-        "awesome-typescript-loader": "~2.2.4",
-        "babel-traverse": "6.18.0",
-        "babel-types": "6.18.0",
-        "babylon": "6.13.1",
-        "chai": "^3.5.0",
-        "chai-as-promised": "^5.3.0",
-        "copy-webpack-plugin": "~3.0.1",
-        "css-loader": "~0.26.0",
-        "extract-text-webpack-plugin": "~2.0.0-beta.4",
-        "lazy": "1.0.11",
-        "nativescript-dev-android-snapshot": "^0.*.*",
-        "nativescript-dev-appium": "~0.1.0",
-        "nativescript-dev-typescript": "^0.3.2",
-        "nativescript-dev-webpack": "^0.2.11",
-        "raw-loader": "~0.5.1",
-        "resolve-url-loader": "~1.6.0",
-        "typescript": "~2.0.6",
-        "wd": "~0.4.0",
-        "webpack": "~2.1.0-beta.27"
-    },
-    "scripts": {
-        "clean-android": "tns clean-app android",
-        "clean-ios": "tns clean-app ios",
-        "prewebpack-android": "npm run clean-android",
-        "prewebpack-ios": "npm run clean-ios",
-        "webpack-android": "webpack --config=webpack.android.js --progress",
-        "webpack-ios": "webpack --config=webpack.ios.js --progress",
-        "prestart-android-bundle": "npm run webpack-android",
-        "prestart-ios-bundle": "npm run webpack-ios",
-        "start-android-bundle": "tns run android --bundle --disable-npm-install",
-        "start-ios-bundle": "tns run ios --bundle --disable-npm-install",
-        "prebuild-android-bundle": "npm run webpack-android",
-        "prebuild-ios-bundle": "npm run webpack-ios",
-        "build-android-bundle": "tns build android --bundle --disable-npm-install",
-        "build-ios-bundle": "tns build ios --bundle --disable-npm-install",
-        "appium": "nativescript-dev-appium",
-        "appium-android": "tns build android && npm run appium --runType=android",
-        "appium-ios-simulator": "tns build ios && npm run appium --runType=ios-simulator",
-        "appium-ios": "tns build ios && npm run appium --runType=ios"
+  "description": "NativeScript Application",
+  "license": "SEE LICENSE IN <your-license-filename>",
+  "readme": "NativeScript Application",
+  "repository": "<fill-your-repository-here>",
+  "nativescript": {
+    "id": "org.nativescript.testts",
+    "tns-ios": {
+      "version": "2.4.0"
     }
+  },
+  "dependencies": {
+    "nativescript-theme-core": "^0.2.1",
+    "tns-core-modules": "uglify"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "~3.0.0-beta.9",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "copy-webpack-plugin": "~3.0.1",
+    "css-loader": "~0.26.0",
+    "extract-text-webpack-plugin": "~2.0.0-beta.4",
+    "nativescript-dev-android-snapshot": "^0.*.*",
+    "nativescript-dev-appium": "^0.1.1",
+    "nativescript-dev-typescript": "^0.3.2",
+    "nativescript-dev-webpack": "^0.2.15",
+    "raw-loader": "~0.5.1",
+    "resolve-url-loader": "~1.6.0",
+    "typescript": "^2.1.4",
+    "wd": "0.4.0",
+    "webpack": "~2.1.0-beta.27"
+  },
+  "scripts": {
+    "clean-android": "tns clean-app android",
+    "clean-ios": "tns clean-app ios",
+    "prewebpack-android": "npm run clean-android",
+    "prewebpack-ios": "npm run clean-ios",
+    "webpack-android": "webpack --config=webpack.android.js --progress",
+    "webpack-ios": "webpack --config=webpack.ios.js --progress",
+    "prestart-android-bundle": "npm run webpack-android",
+    "prestart-ios-bundle": "npm run webpack-ios",
+    "start-android-bundle": "tns run android --bundle --disable-npm-install",
+    "start-ios-bundle": "tns run ios --bundle --disable-npm-install",
+    "prebuild-android-bundle": "npm run webpack-android",
+    "prebuild-ios-bundle": "npm run webpack-ios",
+    "build-android-bundle": "tns build android --bundle --disable-npm-install",
+    "build-ios-bundle": "tns build ios --bundle --disable-npm-install",
+    "appium": "nativescript-dev-appium",
+    "appium-android": "tns build android && npm run appium --runType=android",
+    "appium-ios-simulator": "tns build ios && npm run appium --runType=ios-simulator",
+    "appium-ios": "tns build ios && npm run appium --runType=ios"
+  }
 }
