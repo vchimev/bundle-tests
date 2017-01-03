@@ -19,7 +19,7 @@ describe("button tap", function () {
 
     it("should find an element", function () {
         return driver
-            .waitForElementByAccessibilityId("tapButton", 50000)
+            .waitForElementByAccessibilityId("tapButton", 100000)
             .elementByAccessibilityId("tapButton")
                 .should.eventually.exist
             .tap()
