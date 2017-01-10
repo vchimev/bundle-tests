@@ -7,6 +7,9 @@
     "id": "org.nativescript.testts",
     "tns-ios": {
       "version": "2.5.0-2016-12-7-2"
+    },
+    "tns-android": {
+      "version": "2.4.1"
     }
   },
   "dependencies": {
@@ -15,22 +18,31 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "~3.0.0-beta.9",
+    "babel-traverse": "6.21.0",
+    "babel-types": "6.21.0",
+    "babylon": "6.14.1",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "copy-webpack-plugin": "~3.0.1",
     "css-loader": "~0.26.0",
     "extract-text-webpack-plugin": "~2.0.0-beta.4",
+    "lazy": "1.0.11",
     "nativescript-dev-android-snapshot": "^0.*.*",
     "nativescript-dev-appium": "^0.1.1",
     "nativescript-dev-typescript": "^0.3.2",
-    "nativescript-dev-webpack": "^0.2.15",
+    "nativescript-dev-webpack": "^0.3.0",
     "raw-loader": "~0.5.1",
     "resolve-url-loader": "~1.6.0",
     "typescript": "^2.1.4",
     "wd": "0.4.0",
-    "webpack": "~2.1.0-beta.27"
+    "webpack": "~2.1.0-beta.27",
+    "webpack-sources": "~0.1.3"
   },
   "scripts": {
+    "appium": "nativescript-dev-appium",
+    "appium-android": "tns build android && npm run appium --runType=android",
+    "appium-ios-simulator": "tns build ios && npm run appium --runType=ios-simulator",
+    "appium-ios": "tns build ios && npm run appium --runType=ios",
     "clean-android": "tns clean-app android",
     "clean-ios": "tns clean-app ios",
     "prewebpack-android": "npm run clean-android",
@@ -44,10 +56,6 @@
     "prebuild-android-bundle": "npm run webpack-android",
     "prebuild-ios-bundle": "npm run webpack-ios",
     "build-android-bundle": "tns build android --bundle --disable-npm-install",
-    "build-ios-bundle": "tns build ios --bundle --disable-npm-install",
-    "appium": "nativescript-dev-appium",
-    "appium-android": "tns build android && npm run appium --runType=android",
-    "appium-ios-simulator": "tns build ios && npm run appium --runType=ios-simulator",
-    "appium-ios": "tns build ios && npm run appium --runType=ios"
+    "build-ios-bundle": "tns build ios --bundle --disable-npm-install"
   }
 }
