@@ -19,8 +19,6 @@ module.exports = function (platform, destinationApp) {
     //app.css bundle
     entry["app.css"] = "./app.css";
 
-    console.dir(entry);
-
     var plugins = [
         new ExtractTextPlugin("app.css"),
         //Vendor libs go to the vendor.js chunk
