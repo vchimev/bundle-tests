@@ -3,6 +3,7 @@ export NVM_REPO="https://github.com/creationix/nvm.git"
 export NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 export NVM_DIR="${PROJECT_DIR:-$(pwd)}/.nvm"
 export NODE_VER="v6.9.1"
+export APPIUM_VER="1.6.0"
 export TNS_VER="2.5.0-2016-10-31-6971"
 
 activate_nvm() {
@@ -42,7 +43,7 @@ ensure_tns() {
             npm uninstall -g nativescript
             install_tns
         else
-            echo "tns already installed."
+            echo "tns@$TNS_VER already installed."
         fi
     else
         install_tns
@@ -56,8 +57,19 @@ install_tns() {
     tns error-reporting disable
 }
 
+ensure_appium() {
+    REAL_APPIUM_VER="$(appium --version)"
+    if [ "$REAL_APPIUM_VER" == "$APPIUM_VER" ] ; then
+        echo "appium@$REAL_APPIUM_VER already installed."
+    else
+        echo "Installing appium@$APPIUM_VER..."
+        npm install -g "appium@$APPIUM_VER"
+    fi
+}
+
 activate_node_env() {
     activate_nvm
     install_node
     ensure_tns
+    ensure_appium
 }
