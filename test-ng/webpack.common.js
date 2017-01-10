@@ -1,12 +1,10 @@
 var webpack = require("webpack");
 var nsWebpack = require("nativescript-dev-webpack");
+var nativescriptTarget = require("nativescript-dev-webpack/nativescript-target");
 var path = require("path");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var path = require("path");
-var AotPlugin = require('@ngtools/webpack').AotPlugin;
-
-var nativescriptTarget = require('nativescript-dev-webpack/nativescript-target');
+var AotPlugin = require("@ngtools/webpack").AotPlugin;
 
 module.exports = function (platform, destinationApp) {
     if (!destinationApp) {
@@ -20,6 +18,54 @@ module.exports = function (platform, destinationApp) {
     entry.vendor = "./vendor";
     //app.css bundle
     entry["app.css"] = "./app.css";
+
+    console.dir(entry);
+
+    var plugins = [
+        new ExtractTextPlugin("app.css"),
+        //Vendor libs go to the vendor.js chunk
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ["vendor"]
+        }),
+        //Define useful constants like TNS_WEBPACK
+        new webpack.DefinePlugin({
+            global: "global",
+            __dirname: "__dirname",
+            "global.TNS_WEBPACK": "true",
+        }),
+        //Copy assets to out dir. Add your own globs as needed.
+        new CopyWebpackPlugin([
+            { from: "app.css" },
+            { from: "css/**" },
+            { from: "fonts/**" },
+            { from: "**/*.jpg" },
+            { from: "**/*.png" },
+            { from: "**/*.xml" },
+        ], { ignore: ["App_Resources/**"] }),
+        //Generate a bundle starter script and activate it in package.json
+        new nsWebpack.GenerateBundleStarterPlugin([
+            "./vendor",
+            "./bundle",
+        ]),
+        //Angular AOT compiler
+        new AotPlugin({
+            tsConfigPath: "tsconfig.aot.json",
+            entryModule: path.resolve(__dirname, "app/app.module#AppModule"),
+            typeChecking: false
+        }),
+        new nsWebpack.StyleUrlResolvePlugin({platform}),
+    ];
+
+    if (process.env.npm_config_uglify) {
+        //Work around an Android issue by setting compress = false
+        var compress = platform !== "android";
+        plugins.push(new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                except: nsWebpack.uglifyMangleExcludes,
+            },
+            compress: compress,
+        }));
+    }
 
     return {
         context: path.resolve("./app"),
@@ -81,8 +127,8 @@ module.exports = function (platform, destinationApp) {
                 {
                     test: /\.ts$/,
                     loaders: [
-                        '@ngtools/webpack',
-                        'nativescript-dev-webpack/tns-aot-loader'
+                        "nativescript-dev-webpack/tns-aot-loader",
+                        "@ngtools/webpack",
                     ]
                 },
                 // SASS support
@@ -96,37 +142,6 @@ module.exports = function (platform, destinationApp) {
                 },
             ]
         },
-        plugins: [
-            new ExtractTextPlugin("app.css"),
-            //Vendor libs go to the vendor.js chunk
-            new webpack.optimize.CommonsChunkPlugin({
-                name: ["vendor"]
-            }),
-            //Define useful constants like TNS_WEBPACK
-            new webpack.DefinePlugin({
-                global: "global",
-                __dirname: "__dirname",
-                "global.TNS_WEBPACK": "true",
-            }),
-            //Copy assets to out dir. Add your own globs as needed.
-            new CopyWebpackPlugin([
-                { from: "app.css" },
-                { from: "css/**" },
-                { from: "**/*.jpg" },
-                { from: "**/*.png" },
-                { from: "**/*.xml" },
-            ], { ignore: ["App_Resources/**"] }),
-            //Generate a bundle starter script and activate it in package.json
-            new nsWebpack.GenerateBundleStarterPlugin([
-                "./vendor",
-                "./bundle",
-            ]),
-            //Angular AOT compiler
-            new AotPlugin({
-                tsConfigPath: 'tsconfig.aot.json',
-                entryModule: 'app/app.module#AppModule',
-                typeChecking: false
-            })
-        ],
+        plugins: plugins,
     };
 };
