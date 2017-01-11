@@ -3,7 +3,7 @@ export NVM_REPO="https://github.com/creationix/nvm.git"
 export NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 export NVM_DIR="${PROJECT_DIR:-$(pwd)}/.nvm"
 export NODE_VER="v6.9.1"
-export APPIUM_VER="1.6.0"
+export APPIUM_VER="1.6.3"
 export TNS_VER="2.5.0-2016-10-31-6971"
 
 activate_nvm() {

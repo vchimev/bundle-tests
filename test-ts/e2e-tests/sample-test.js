@@ -22,7 +22,7 @@ describe("button tap", function () {
             .waitForElementByAccessibilityId("tapButton", 100000)
             .elementByAccessibilityId("tapButton")
                 .should.eventually.exist
-            .tap()
+            .click()
             .elementById("message")
                 .text().should.eventually.equal("15 taps left")
                 //.getAttribute("value").should.eventually.equal("15 taps left")
