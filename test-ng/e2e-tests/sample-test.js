@@ -2,7 +2,7 @@
 var nsAppium = require("nativescript-dev-appium");
 
 describe("button tap", function () {
-    this.timeout(600000);
+    this.timeout(900000);
     var driver;
 
     before(function () {
@@ -19,7 +19,7 @@ describe("button tap", function () {
 
     it("should find an element", function () {
         return driver
-            .waitForElementByAccessibilityId("tapButton", 300000)
+            .waitForElementByAccessibilityId("tapButton", 600000)
             .elementByAccessibilityId("tapButton")
                 .should.eventually.exist
             .click()
