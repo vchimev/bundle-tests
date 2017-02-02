@@ -42,7 +42,7 @@
         "nativescript-dev-android-snapshot": "^0.*.*",
         "nativescript-dev-appium": "~0.2.0",
         "nativescript-dev-typescript": "^0.3.2",
-        "nativescript-dev-webpack": "^0.3.0",
+        "nativescript-dev-webpack": "https://github.com/NativeScript/nativescript-dev-webpack.git#master",
         "raw-loader": "~0.5.1",
         "resolve-url-loader": "~1.6.0",
         "typescript": "~2.0.10",

@@ -22,6 +22,8 @@ build_app() {
     APP="$1"
     (cd "$APP" && \
         npm install && \
+        ./node_modules/.bin/remove-ns-webpack && \
+        ./node_modules/.bin/install-ns-webpack && \
         find node_modules -iname '*.gz' -delete && \
         rm -rf platforms && \
         npm run build-ios-bundle)
