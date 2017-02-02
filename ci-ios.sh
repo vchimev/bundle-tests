@@ -20,15 +20,18 @@ trap cleanup EXIT
 
 build_app() {
     APP="$1"
-    (cd "$APP" && \
-        npm install && \
-        npm run upgrade-ng-app && \
-        rm -rf node_modules/nativescript-angular && \
-        ./node_modules/.bin/remove-ns-webpack && \
-        ./node_modules/.bin/install-ns-webpack && \
-        find node_modules -iname '*.gz' -delete && \
-        rm -rf platforms && \
-        npm run build-ios-bundle)
+    (cd "$APP" && make_app)
+}
+
+make_app() {
+    npm install
+    npm run upgrade-ng-app
+    rm -rf node_modules/nativescript-angular
+    ./node_modules/.bin/remove-ns-webpack
+    ./node_modules/.bin/install-ns-webpack
+    find node_modules -iname '*.gz' -delete
+    rm -rf platforms
+    npm run build-ios-bundle
 }
 
 test_app() {
