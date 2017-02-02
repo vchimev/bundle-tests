@@ -26,8 +26,6 @@ module.exports = function (platform, destinationApp) {
         }),
         //Define useful constants like TNS_WEBPACK
         new webpack.DefinePlugin({
-            global: "global",
-            __dirname: "__dirname",
             "global.TNS_WEBPACK": "true",
         }),
         //Copy assets to out dir. Add your own globs as needed.
@@ -47,6 +45,10 @@ module.exports = function (platform, destinationApp) {
     ];
 
     if (process.env.npm_config_uglify) {
+        plugins.push(new webpack.LoaderOptionsPlugin({
+            minimize: true
+        }));
+
         //Work around an Android issue by setting compress = false
         var compress = platform !== "android";
         plugins.push(new webpack.optimize.UglifyJsPlugin({
@@ -100,7 +102,7 @@ module.exports = function (platform, destinationApp) {
                     test: /app\.css$/,
                     loader: ExtractTextPlugin.extract([
                         "resolve-url-loader",
-                        "css-loader",
+                        "nativescript-css-loader",
                         "nativescript-dev-webpack/platform-css-loader",
                     ]),
                 },
