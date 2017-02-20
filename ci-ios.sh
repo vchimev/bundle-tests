@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -v
 
 . ./tns-env.sh
 . ./simulator.sh
