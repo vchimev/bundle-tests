@@ -1,12 +1,13 @@
 #!/bin/bash
 set -e
-set -v
 
 . ./tns-env.sh
 . ./simulator.sh
 
 EXIT_CODE=0
+set +e
 activate_node_env
+set -e
 
 prepare_simulator
 start_simulator
