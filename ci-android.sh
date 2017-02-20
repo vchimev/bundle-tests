@@ -5,7 +5,9 @@ set -e
 . ./emulator.sh
 
 EXIT_CODE=0
+set +e
 activate_node_env
+set -e
 
 create_emulator
 start_emulator &
